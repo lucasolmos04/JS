@@ -16,7 +16,6 @@ router.post('/', newUser);
 router.get('/:userId', getUser);
 router.put('/:userId', replaceUser);
 router.delete('/:userId', deleteUser);
-
 router.get('/:userId/cars', getUserCars);
 router.post('/:userId/cars', newUsersCar);
 

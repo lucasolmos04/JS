@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Car = require('../models/cars');
+const schema = require('../domain/services/validateUser.services');
 
 module.exports = {
     index: async (req, res, next) => { // Se debe colocar la palabra clave async para poder usar await
@@ -8,6 +9,12 @@ module.exports = {
     },
 
     newUser: async (req, res, next) => {
+        if (schema.validate(req.body).error) {
+            return res.status(400).json({
+                'error': true,
+                'msg': 'Ha ocurrido un error'
+            });
+        }
         const newUser = new User(req.body);
         const user = await newUser.save();
         res.status(200).json(user);
@@ -20,6 +27,12 @@ module.exports = {
     },
 
     replaceUser: async (req, res, next) => {
+        if (schema.validate(req.body).error) {
+            return res.status(400).json({
+                'error': true,
+                'msg': 'Ha ocurrido un error'
+            });
+        }
         const {userId} = req.params;
         const newUser = req.body;
         const oldUser = await User.findByIdAndUpdate(userId, newUser);
@@ -27,6 +40,12 @@ module.exports = {
     },
 
     updateUser: async (req, res, next) => {
+        if (schema.validate(req.body).error) {
+            return res.status(400).json({
+                'error': true,
+                'msg': 'Ha ocurrido un error'
+            });
+        }
         const {userId} = req.params;
         const newUser = req.body;
         const oldUser = await User.findByIdAndUpdate(userId, newUser);
