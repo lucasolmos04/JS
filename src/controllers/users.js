@@ -1,6 +1,6 @@
 const User = require('../models/user');
 const Car = require('../models/cars');
-const schema = require('../domain/services/validateUser.services');
+const schema = require('./schema/user.schema');
 
 module.exports = {
     index: async (req, res, next) => { // Se debe colocar la palabra clave async para poder usar await
