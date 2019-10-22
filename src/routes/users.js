@@ -1,5 +1,4 @@
 const router = require('express-promise-router')();
-//const router = express.Router();
 
 const {
     index,
@@ -9,7 +8,7 @@ const {
     deleteUser,
     getUserCars,
     newUsersCar
-} = require('../controllers/users');
+} = require('../controllers/users.controllers');
 
 router.get('/', index);
 router.post('/', newUser);
