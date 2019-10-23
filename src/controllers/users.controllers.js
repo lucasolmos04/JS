@@ -35,7 +35,7 @@ module.exports = {
         }
         const {userId} = req.params;
         const newUser = req.body;
-        const oldUser = await User.findByIdAndUpdate(userId, newUser);
+        await User.findByIdAndUpdate(userId, newUser);
         res.status(200).json({success: true});
     },
 
@@ -48,7 +48,7 @@ module.exports = {
         }
         const {userId} = req.params;
         const newUser = req.body;
-        const oldUser = await User.findByIdAndUpdate(userId, newUser);
+        await User.findByIdAndUpdate(userId, newUser);
         res.status(200).json({success: true});
     },
 

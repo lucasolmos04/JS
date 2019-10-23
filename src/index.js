@@ -10,8 +10,8 @@ const userRouter = require('./routes/users');
 mongoose.Promise = global.Promise; // Usamos las promesas de Node Js
 mongoose.connect('mongodb://localhost/restApiEjemplo', {
     useMongoClient: true
-})
-    .then(db => console.log('db is connected'))
+    })
+    .then(console.log('db is connected'))
     .catch(err => console.log(err))
 ;
 // Setting
